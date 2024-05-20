@@ -1,0 +1,33 @@
+<% layout("../Views/layouts/boilerplate") %>
+
+    <body>
+        <h3>All Listings</h3>
+
+        <!-- <form method="GET" action="/listings/new">
+        <button>Create New Listing</button>
+    </form> -->
+    <div class="container">
+        <div class="row">
+            <% for (let i = 0; i < allListings.length; i++) { %>
+                <% if (i % 4 === 0) { %>
+                    </div>
+                    <div class="row">
+                <% } %>
+                <div class="col-md-3">
+                    <a href="../listings/<%= allListings[i]._id %>">
+                        <div class="card" style="width: 100%">
+                            <img src="<%= allListings[i].image %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                            <div class="card-img-overlay"></div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b><%= allListings[i].title %></b><br>
+                                    &#8377;<%= allListings[i].price.toLocaleString("en-IN") %> / night
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    
