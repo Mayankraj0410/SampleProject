@@ -1,8 +1,11 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js"); 
-//const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
+
+const MONGO_URL= process.env.MONGO_URL || "mongodb://127.0.0.1:27017/wanderlust";
 const path = require("path");
 const methodOverride = require("method-override"); 
 const ejsMate = require("ejs-mate");
